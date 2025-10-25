@@ -1,5 +1,5 @@
 # Переходим в папку проекта
-cd "C:\Users\a.kashezhev\Desktop\МОЙ_site_prizvanie"
+cd "C:\Users\a.kashezhev\Desktop\MOY_site_prizvanie"
 
 # Добавляем все изменённые файлы
 git add .
