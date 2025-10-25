@@ -1,0 +1,2 @@
+cd C:\telegram-bot
+& "C:\Users\a.kashezhev\AppData\Local\Programs\Python\Python311\python.exe" bot.py

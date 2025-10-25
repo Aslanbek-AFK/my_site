@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>АНО ДПО "Призвание"</title>
+
+  <!-- Шрифты и стили -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+        integrity="sha512-pV3XdDq0kVym/g3pZJp6j0XZPpPDDV/h57jPhXfV6DJu0VNN5m6jYxZrB2m4+2tCxl+Pgf/6Q0c4Y8a0kf07Wg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="static-nav">
+    <a href="index.html">Главная</a>
+    <a href="courses.html">Программы</a>
+    <a href="admission.html">Поступление и обучение</a>
+    <a href="documents.html">Документы</a>
+    <a href="contacts.html">Контакты</a>
+  </nav>
+
+  <header>
+    <img src="logo.png" alt="Логотип Призвание" class="logo" />
+    <h1>Добро пожаловать в АНО ДПО "Призвание"</h1>
+    <p>Учебный центр профессионального развития. Есть задача — найдётся решение. Помогаем с обучением арбитражных управляющих.</p>
+    <p>Современные образовательные программы для профессионального развития и подготовки арбитражных управляющих.</p>
+  </header>
+
+  <main>
+    <section class="contacts-section fade-in">
+      <div class="wave-top"></div>
+      <div class="container">
+        <h2 class="section-title">Контакты</h2>
+        <p class="contacts-subtitle">
+          Мы всегда готовы ответить на ваши вопросы и помочь с выбором образовательной программы.
+        </p>
+
+        <div class="contacts-info">
+        <!-- Телефон -->
+        <div class="contact-item fade-in">
+          <div class="icon phone"><i class="fas fa-phone"></i></div>
+          <div>
+            <h3>Телефон</h3>
+            <p>+7 (999) 309-87-78</p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-item fade-in">
+          <div class="icon email"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h3>Email</h3>
+            <p>prizvanie_fz_27@mail.ru</p>
+          </div>
+        </div>
+
+        <!-- Адрес -->
+        <div class="contact-item fade-in">
+          <div class="icon address"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h3>Адрес</h3>
+            <p>360004, КБР, г. Нальчик, ул. Тургенева, 21, оф 201</p>
+          </div>
+        </div>
+
+        <!-- Время работы -->
+        <div class="contact-item fade-in">
+          <div class="icon clock"><i class="fas fa-clock"></i></div>
+          <div>
+            <h3>Время работы</h3>
+            <p>Пн – Пт: с 10:00 до 18:00<br>Перерыв: с 13:00 до 14:00<br>Сб, Вс: выходной</p>
+          </div>
+        </div>
+      </div>
+
+        <!-- Форма и карта -->
+        <div class="contacts-extra">
+          <div class="contact-form fade-in">
+            <h3>Напишите нам</h3>
+            <form id="contactForm">
+              <input type="text" name="name" placeholder="Ваше имя" required class="fade-in">
+              <input type="email" name="email" placeholder="Ваш email" required class="fade-in">
+              <textarea name="message" placeholder="Ваше сообщение" required class="fade-in"></textarea>
+              <button type="submit" class="fade-in">Отправить</button>
+            </form>
+            <p id="formMessage" class="success-message fade-in" style="display:none; color:green;">Сообщение отправлено!</p>
+          </div>
+
+          <div class="contact-map fade-in">
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3Acc8212d59101a5e996ff62f4e9a2dfbd4d9de22e1b97c991aafc90564982e22c&source=constructor"
+              width="100%" height="350" frameborder="0" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+      <div class="wave-bottom"></div>
+    </section>
+  </main>
+
+  <!-- Футер -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Контакты</h4>
+        <p><strong>Телефон:</strong> +7 (999) 309-87-78</p>
+        <p><strong>Почта:</strong> prizvanie_fz_27@mail.ru</p>
+        <p><strong>Адрес:</strong> 360004, КБР, г. Нальчик, ул. Тургенева, 21, оф 201</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Время работы</h4>
+        <p>Пн – Пт: с 10:00 до 18:00</p>
+        <p>Перерыв: с 13:00 до 14:00</p>
+        <p>Суббота, Воскресенье: выходной</p>
+      </div>
+
+      <div class="footer-column information">
+        <h4>Информация</h4>
+        <p><a href="index.html">Главная</a></p>
+        <p><a href="courses.html">Программы</a></p>
+        <p><a href="admission.html">Поступление и обучение</a></p>
+        <p><a href="documents.html">Документы</a></p>
+        <p><a href="contacts.html">Контакты</a></p>
+      </div>
+
+      <div class="footer-column social">
+        <h4>Соц. сети</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/YourPage" target="_blank" rel="noopener noreferrer" class="facebook">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+          <a href="https://www.instagram.com/YourProfile" target="_blank" rel="noopener noreferrer" class="instagram">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="https://vk.com/YourProfile" target="_blank" rel="noopener noreferrer" class="vk">
+            <i class="fab fa-vk"></i> VK
+          </a>
+          <a href="https://t.me/Nikol_Taekwondo" target="_blank" rel="noopener noreferrer" class="telegram">
+            <i class="fab fa-telegram-plane"></i> Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>Автономная некоммерческая организация дополнительного профессионального образования «ПРИЗВАНИЕ»</p>
+      <p>Лицензия на осуществление образовательной деятельности ...</p>
+      <p>ОГРН: 1212300049280 ИНН: 2312303861 КПП: 231201001</p>
+      <p>Copyright © 2020-2024 All Rights Reserved. <a href="#">Политика обработки персональных данных</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
