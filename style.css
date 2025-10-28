@@ -8,7 +8,7 @@ html, body {
   background-color: #c8e1fc;
 }
 
-/* --- Фиксированный nav --- */
+/* --- Навигация --- */
 .static-nav {
   width: 100%;
   background-color: #003f7f;
@@ -45,7 +45,7 @@ header {
   padding: 20px;
   font-family: 'Georgia', serif;
   font-size: 1.5em;
-  margin-top: 60px; /* чтобы nav не перекрывал */
+  margin-top: 60px;
   z-index: 1000;
 }
 
@@ -79,7 +79,7 @@ main {
 
 .main-title {
   font-size: 3em;
-  color: #000000;
+  color: #000;
   margin-bottom: 30px;
   text-align: center;
 }
@@ -153,7 +153,7 @@ main p {
   flex: 1;
 }
 
-/* --- Золотой блок wide-main --- */
+/* Золотой блок wide-main */
 .wide-main {
   width: 100%;
   max-width: 100%;
@@ -170,8 +170,6 @@ main p {
   box-sizing: border-box;
   flex-direction: column;
   gap: 12px;
-  background-color: #f9f9f9;
-  border-left: 6px solid #FFD700;
   font-size: 1.05em;
 }
 
@@ -191,10 +189,24 @@ main p {
   }
 }
 
-/* --- Анимация появления --- */
+/* --- Анимации --- */
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in,
+.info-block,
+.contact-item {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  will-change: transform, opacity;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* --- Курсивные цитаты --- */
@@ -210,7 +222,7 @@ main p {
   line-height: 1.6;
 }
 
-
+/* --- Разделы и таблицы --- */
 .section-title {
   font-family: 'Rubik', sans-serif;
   font-size: 28px;
@@ -246,28 +258,16 @@ main p {
   border-bottom: 1px solid #ddd;
 }
 
-.teachers-table tr:last-child td {
-  border-bottom: none;
-}
+.teachers-table tr:last-child td { border-bottom: none; }
 
-.teachers-table tr:hover {
-  background-color: #f5faff;
-}
+.teachers-table tr:hover { background-color: #f5faff; }
 
-/* 📱 Адаптив */
 @media (max-width: 768px) {
-  .teachers-table thead {
-    display: none;
-  }
-
-  .teachers-table,
-  .teachers-table tbody,
-  .teachers-table tr,
-  .teachers-table td {
+  .teachers-table thead { display: none; }
+  .teachers-table, .teachers-table tbody, .teachers-table tr, .teachers-table td {
     display: block;
     width: 100%;
   }
-
   .teachers-table tr {
     background: #fff;
     margin-bottom: 15px;
@@ -276,14 +276,7 @@ main p {
     overflow: hidden;
     padding: 10px;
   }
-
-  .teachers-table td {
-    border: none;
-    padding: 8px 10px;
-    position: relative;
-    text-align: left;
-  }
-
+  .teachers-table td { border: none; padding: 8px 10px; text-align: left; }
   .teachers-table td::before {
     content: attr(data-label);
     display: block;
@@ -293,334 +286,7 @@ main p {
   }
 }
 
-/* ✨ Анимация появления элементов */
-.fade-in,
-.info-block
-.contact-item {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  will-change: transform, opacity;
-}
-
-.fade-in.visible,
-.info-block.visible
-.contact-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.contacts-section {
-  position: relative;
-  background-color: #f9fafc;
-  padding: 80px 20px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.contacts-section 
-.section-title {
-  font-size: 2.2rem;
-  color: #1f2b3a;
-  margin-bottom: 15px;
-}
-
-.contacts-subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contacts-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.contact-item {
-  background: linear-gradient(145deg, #ffffff, #f1f8ff);
-  border-radius: 20px;
-  padding: 25px 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-.contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  background: linear-gradient(145deg, #e0f0ff, #ffffff);
-}
-
-.contact-item .icon {
-  font-size: 2rem;       /* размер иконки */
-  color: #005baa;      /* цвет иконки */
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;    /* можно оставить, если хочется круглый контейнер */
-  background: none;      /* убираем цвет */
-}
-
-/* Индивидуальные цвета иконок (по желанию) */
-.contact-item .icon.phone { color: #28a745; }     /* зеленый */
-.contact-item .icon.email { color: #dc3545; }     /* красный */
-.contact-item .icon.address { color: #ff7f00; }   /* оранжевый */
-.contact-item .icon.clock { color: #005baa; }     /* синий */
-
-
-.contact-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #1f2b3a;
-}
-
-.contact-item p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.contacts-extra {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 50px;
-  justify-content: center;
-}
-
-.contact-form, 
-.contact-map {
-  flex: 1 1 400px;
-  max-width: 500px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact-form:hover, 
-.contact-map:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
-.contact-form h3 {
-  margin-bottom: 15px;
-  color: #1f2b3a;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.contact-form button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 10px;
-  background-color: #2196F3;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #1976d2;
-}
-
-/* Волны */
-.wave-top, .wave-bottom {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 0;
-}
-
-.wave-top { top: 0; transform: rotate(180deg); }
-.wave-bottom { bottom: 0; }
-
-/* Волна сверху и снизу */
-.wave-top,
-.wave-bottom {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.wave-top {
-  top: 0;
-  background-image: url("img/wave-top.svg"); /* Подставь путь к своей волне */
-  transform: rotate(180deg);
-}
-
-.wave-bottom {
-  bottom: 0;
-  background-image: url("img/wave-bottom.svg"); /* Подставь путь к своей волне */
-}
-
-/* --- Футер --- */
-.site-footer {
-  background-color: #084888;
-  color: #fff;
-  padding: 60px 20px 20px;
-  font-size: 16px;
-  line-height: 2;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 2000px;
-  margin: 0 auto 40px;
-  justify-content: space-between;
-}
-
-.footer-column {
-  flex: 1 1 200px;
-}
-
-.footer-column h4 {
-  color: #4fa1f1;
-  margin-bottom: 15px;
-  font-size: 1.8em;
-}
-
-.footer-column p,
-.footer-column a {
-  font-size: 1.2em;
-  color: #fff;
-  text-decoration: none;
-  overflow-wrap: break-word;
-}
-
-.footer-column a:hover {
-  text-decoration: underline;
-}
-
-/* Соцсети */
-.social-links {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-}
-
-/* Соцсети с фирменными цветами */
-.social-links a {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 12px;
-  border-radius: 5px;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.9em;
-  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
-}
-
-/* Фирменные цвета */
-.social-links a.facebook { background-color: #3b5998; }
-.social-links a.instagram { background-color: #e4405f; }
-.social-links a.vk { background-color: #4a76a8; }
-.social-links a.telegram { background-color: #0088cc; }
-
-/* Hover */
-.social-links a:hover {
-  opacity: 0.85;
-  transform: translateY(-2px);
-}
-/* Нижняя строка футера */
-.footer-bottom {
-  border-top: 1px solid #4fa1f1;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 1em;
-  color: #bbb;
-}
-
-.footer-bottom a {
-  color: #4fa1f1;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-/* Адаптив */
-@media (max-width: 768px) {
-  .footer-container { flex-direction: column; gap: 30px; }
-  .footer-column h4 { font-size: 1.6em; }
-  .footer-column a { font-size: 1.1em; }
-  .social-links a { font-size: 1em; padding: 5px 8px; }
-  .footer-bottom { font-size: 0.95em; }
-}
-
-.footer-column.social .social-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
-  color: #fff;
-  border-radius: 8px;
-  font-size: 1em;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-/* Цвета соцсетей */
-.footer-column.social .social-links a.facebook { background-color: #3b5998; }
-.footer-column.social .social-links a.instagram { background-color: #e4405f; }
-.footer-column.social .social-links a.vk { background-color: #4c75a3; }
-.footer-column.social .social-links a.telegram { background-color: #0088cc; }
-
-/* Hover эффект */
-.footer-column.social .social-links a:hover {
-  transform: translateY(-2px);
-}
-
-.footer-column.social .social-links a.facebook:hover { background-color: #2d4373; }
-.footer-column.social .social-links a.instagram:hover { background-color: #c32e50; }
-.footer-column.social .social-links a.vk:hover { background-color: #3b5c7d; }
-.footer-column.social .social-links a.telegram:hover { background-color: #006699; }
-
-/* Иконки Font Awesome */
-.footer-column.social .social-links i {
-  font-size: 1.2em;
-}
-
-/* --- Контакты --- */
+/* --- Контакты и формы --- */
 .contacts-section {
   position: relative;
   background-color: #f9fafc;
@@ -658,7 +324,7 @@ main p {
   display: flex;
   align-items: flex-start;
   gap: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .contact-item:hover {
@@ -667,19 +333,24 @@ main p {
   background: linear-gradient(145deg, #e0f0ff, #ffffff);
 }
 
-.contact-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #1f2b3a;
+.contact-item .icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.contact-item p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-}
+.contact-item .icon.phone { color: #28a745; }
+.contact-item .icon.email { color: #dc3545; }
+.contact-item .icon.address { color: #ff7f00; }
+.contact-item .icon.clock { color: #005baa; }
 
-/* Форма и карта */
+.contact-item h3 { font-size: 1.2rem; margin-bottom: 5px; color: #1f2b3a; }
+.contact-item p { color: #555; font-size: 1rem; line-height: 1.5; }
+
 .contacts-extra {
   display: flex;
   flex-wrap: wrap;
@@ -688,8 +359,7 @@ main p {
   justify-content: center;
 }
 
-.contact-form, 
-.contact-map {
+.contact-form, .contact-map {
   flex: 1 1 400px;
   max-width: 500px;
   border-radius: 20px;
@@ -699,8 +369,7 @@ main p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form:hover, 
-.contact-map:hover {
+.contact-form:hover, .contact-map:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
@@ -708,41 +377,124 @@ main p {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
   border-radius: 10px;
   border: 1px solid #ccc;
   font-size: 1rem;
   box-sizing: border-box;
 }
 
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
+.contact-form textarea { resize: vertical; min-height: 120px; }
 
 .contact-form button {
-  padding: 10px 20px;
-  background-color: #005baa;
-  color: #fff;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
+  background-color: #2196F3;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-.contact-form button:hover {
-  background-color: #004080;
+.contact-form button:hover { background-color: #1976d2; }
+
+/* --- Волны --- */
+.wave-top, .wave-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
 }
 
-/* --- Стил курсив и жирный шрифт --- */
+.wave-top { top: 0; background-image: url("img/wave-top.svg"); transform: rotate(180deg); }
+.wave-bottom { bottom: 0; background-image: url("img/wave-bottom.svg"); }
+
+/* --- Футер --- */
+.site-footer {
+  background-color: #084888;
+  color: #fff;
+  padding: 60px 20px 20px;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 2000px;
+  margin: 0 auto 40px;
+  justify-content: space-between;
+}
+
+.footer-column { flex: 1 1 200px; }
+
+.footer-column h4 { color: #4fa1f1; margin-bottom: 15px; font-size: 1.8em; }
+.footer-column p, .footer-column a { font-size: 1.2em; color: #fff; text-decoration: none; overflow-wrap: break-word; }
+.footer-column a:hover { text-decoration: underline; }
+
+/* Соцсети */
+.social-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.social-links a.facebook { background-color: #3b5998; }
+.social-links a.instagram { background-color: #e4405f; }
+.social-links a.vk { background-color: #4a76a8; }
+.social-links a.telegram { background-color: #0088cc; }
+
+.social-links a:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* Нижняя строка футера */
+.footer-bottom {
+  border-top: 1px solid #4fa1f1;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 1em;
+  color: #bbb;
+}
+
+.footer-bottom a { color: #4fa1f1; text-decoration: none; }
+.footer-bottom a:hover { text-decoration: underline; }
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .footer-container { flex-direction: column; gap: 30px; }
+  .footer-column h4 { font-size: 1.6em; }
+  .footer-column a { font-size: 1.1em; }
+  .social-links a { font-size: 1em; padding: 5px 8px; }
+  .footer-bottom { font-size: 0.95em; }
+}
+
+/* --- Стиль жирный+курсив --- */
 .bold-italic {
-    font-weight: bold;   /* жирный */
-    font-style: italic;  /* курсив */
-    color: #0000EE;      /* цвет ссылки */
-    text-decoration: none; /* убрать подчеркивание */
-    cursor: pointer;
-  }
-  .bold-italic:hover {
-    text-decoration: underline; /* подчеркивание при наведении */
-  }
+  font-weight: bold;
+  font-style: italic;
+  color: #0000EE;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bold-italic:hover { text-decoration: underline; }
